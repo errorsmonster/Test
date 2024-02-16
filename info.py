@@ -87,6 +87,10 @@ SEASONS = ["season 1" , "season 2" , "season 3" , "season 4", "season 5" , "seas
 
 QUALITIES = ["PreDVD", "HDTS", "S-PRINT", "HQ", "HDRIP", "HD", "TRUE WEB-DL", "360p", "480p", "720p", "1080p", "1440p", "2160p", "4K"]
 
+#Downloader
+DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
+
+
 # Online Stream and Download
 NO_PORT = bool(environ.get('NO_PORT', False))
 APP_NAME = None
