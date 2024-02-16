@@ -89,7 +89,8 @@ QUALITIES = ["PreDVD", "HDTS", "S-PRINT", "HQ", "HDRIP", "HD", "TRUE WEB-DL", "3
 
 #Downloader
 DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
-
+# Command
+COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "/")
 
 # Online Stream and Download
 NO_PORT = bool(environ.get('NO_PORT', False))
