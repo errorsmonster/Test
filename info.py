@@ -15,7 +15,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '22225617'))
 API_HASH = environ.get('API_HASH', 'ef16f7597376f1689663304c954e4493')
-BOT_TOKEN = environ.get('BOT_TOKEN', "6178923981:AAERLKyhio-zsFesfAcWJDAppeiltUraJCQ")
+BOT_TOKEN = environ.get('BOT_TOKEN', "6742244909:AAGYU_f1sQdX1jPyZBcc4Odg9JiVf7TBJUM")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
@@ -37,20 +37,20 @@ auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
 support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1001955218723')
-reqst_channel = environ.get('REQST_CHANNEL_ID', '-1001842834681')
+reqst_channel = environ.get('REQST_CHANNEL_ID', '-1002053122232')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://akmonsterprogrammer:S.Aruna1155182089@2gb.nuzfrga.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "2gb")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://akmonsterprogrammer:S.Aruna1155182089@mraklinkzbot.uszdtdz.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_NAME = environ.get('DATABASE_NAME', "MrAKLinkZbot")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
 VERIFY = bool(environ.get('VERIFY', False))
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'gyanilinks.com')
-SHORTLINK_API = environ.get('SHORTLINK_API', 'b6696a9a3a4d95031b076b9b8b40e163f9f29ff5')
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'krownlinks.com')
+SHORTLINK_API = environ.get('SHORTLINK_API', '274bdc3b7ff8982f5a0167edf2034f40ddc52d15')
 IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "10")
@@ -62,7 +62,7 @@ TUTORIAL = environ.get('TUTORIAL', 'https://t.me/MrAK_LinkZz/5')
 WRM = environ.get('WRM', 'https://t.me/MrAK_LinkZz/5')
 IS_TUTORIAL = bool(environ.get('IS_TUTORIAL', True))
 MSG_ALRT = environ.get('MSG_ALRT', 'Hello Nanbha and Nanbis ❤️')
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001842834681'))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002053122232'))
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'MrAK_LinkZz_Support_Chat')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), True)
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
@@ -81,7 +81,7 @@ MELCOW_NEW_USERS = is_enabled((environ.get('MELCOW_NEW_USERS', "True")), True)
 PROTECT_CONTENT = is_enabled((environ.get('PROTECT_CONTENT', "False")), False)
 PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 
-LANGUAGES = ["malayalam", "mal", "tamil", "tam" ,"english", "eng", "hindi", "hin", "telugu", "tel", "kannada", "kan"]
+LANGUAGES = ["Tamil", "Tam", "Telugu", "Tel", "Kannada", "kan", "Malayalam", "Mal", "Hindi", "Hin", "Punjabi", "Marathi", "Gujarati", "English", "Eng", "Korean", "Kor", "Japanese", "Jap", "Chinese", "Chi", "Single", "Dual", "Multi"]
 
 SEASONS = ["season 1" , "season 2" , "season 3" , "season 4", "season 5" , "season 6" , "season 7" , "season 8" , "season 9" , "season 10"]
 
