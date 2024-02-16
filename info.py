@@ -51,7 +51,7 @@ COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 VERIFY = bool(environ.get('VERIFY', False))
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'gyanilinks.com')
 SHORTLINK_API = environ.get('SHORTLINK_API', 'b6696a9a3a4d95031b076b9b8b40e163f9f29ff5')
-IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', False))
+IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "10")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
@@ -84,7 +84,7 @@ LANGUAGES = ["malayalam", "mal", "tamil", "tam" ,"english", "eng", "hindi", "hin
 
 SEASONS = ["season 1" , "season 2" , "season 3" , "season 4", "season 5" , "season 6" , "season 7" , "season 8" , "season 9" , "season 10"]
 
-
+QUALITIES = ["PreDVD", "HDTS", "S-PRINT", "HQ", "HDRIP", "HD", "TRUE WEB-DL", "360p", "480p", "720p", "1080p", "1440p", "2160p", "4K"]
 
 # Online Stream and Download
 NO_PORT = bool(environ.get('NO_PORT', False))
