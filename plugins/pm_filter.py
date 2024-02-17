@@ -1315,7 +1315,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         _, file_id = lazyData.split(":")
         try:
             user_id = query.from_user.id
-            username =  query.from_user.mention 
+            username =  query.from_user.mention
+            user = query.from_user.id 
 
             log_msg = await client.send_cached_media(
                 chat_id=LOG_CHANNEL,
