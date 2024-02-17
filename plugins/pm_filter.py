@@ -1322,37 +1322,68 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 file_id=file_id,
             )
             fileName = {quote_plus(get_name(log_msg))}
-            lazy_stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-            lazy_download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-            online = await get_shortlink(chat_id=log_msg.chat.id , link=lazy_stream)
-            download = await get_shortlink(chat_id=log_msg.chat.id, link=lazy_download)
+            settings = await get_settings(log_msg.chat.id)
+            if settings['is_shortlink'] and user not in PREMIUM_USER:
+                lazy_stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                lazy_download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                online = await get_shortlink(chat_id=log_msg.chat.id , link=lazy_stream)
+                download = await get_shortlink(chat_id=log_msg.chat.id, link=lazy_download)
 
-            await log_msg.reply_text(
-                text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
-                quote=True,
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🛡 Fast Download", url=download),  # we download Link
+                await log_msg.reply_text(
+                    text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
+                    quote=True,
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🛡 Fast Download", url=download),  # we download Link
                                                     InlineKeyboardButton('▶ Watch online', url=online)]])  # web stream Link
-            )
-            await query.edit_message_reply_markup(
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                    [
-                        InlineKeyboardButton("🛡 Fast Download📥", url=download),
-                        InlineKeyboardButton("▶ Watch online🖥️", url=online)
-                    ],[          
-                        InlineKeyboardButton(' Hᴏᴡ Tᴏ Dᴏᴡɴʟᴏᴀᴅ', url= "https://t.me/MrAK_LinkZz/5")
-                    ],[          
-                        InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK),
-                        InlineKeyboardButton('ɢʀᴏᴜᴘ', url=GRP_LNK)
-                    ],[
-                        InlineKeyboardButton('𝚆𝚎𝚎𝚔𝚕𝚢 𝚁𝚎𝚕𝚎𝚊𝚜𝚎𝚍 𝙼𝚘𝚟𝚒𝚎𝚜', url=WRM)
-                    ],[
-                        InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
-                    ]
-                    ]
-                ) 
-            )
+                )
+                await query.edit_message_reply_markup(
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                        [
+                            InlineKeyboardButton("🛡 Fast Download📥", url=download),
+                            InlineKeyboardButton("▶ Watch online🖥️", url=online)
+                        ],[          
+                            InlineKeyboardButton(' Hᴏᴡ Tᴏ Dᴏᴡɴʟᴏᴀᴅ', url= "https://t.me/MrAK_LinkZz/5")
+                        ],[          
+                            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK),
+                            InlineKeyboardButton('ɢʀᴏᴜᴘ', url=GRP_LNK)
+                        ],[
+                            InlineKeyboardButton('𝚆𝚎𝚎𝚔𝚕𝚢 𝚁𝚎𝚕𝚎𝚊𝚜𝚎𝚍 𝙼𝚘𝚟𝚒𝚎𝚜', url=WRM)
+                        ],[
+                            InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
+                        ]
+                        ]
+                    ) 
+                )
+            else:
+                online = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                await log_msg.reply_text(
+                    text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
+                    quote=True,
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🛡 Fast Download", url=download),  # we download Link
+                                                    InlineKeyboardButton('▶ Watch online', url=online)]])  # web stream Link
+                )
+                await query.edit_message_reply_markup(
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                        [
+                            InlineKeyboardButton("🛡 Fast Download📥", url=download),
+                            InlineKeyboardButton("▶ Watch online🖥️", url=online)
+                        ],[          
+                            InlineKeyboardButton(' Hᴏᴡ Tᴏ Dᴏᴡɴʟᴏᴀᴅ', url= "https://t.me/MrAK_LinkZz/5")
+                        ],[          
+                            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK),
+                            InlineKeyboardButton('ɢʀᴏᴜᴘ', url=GRP_LNK)
+                        ],[
+                            InlineKeyboardButton('𝚆𝚎𝚎𝚔𝚕𝚢 𝚁𝚎𝚕𝚎𝚊𝚜𝚎𝚍 𝙼𝚘𝚟𝚒𝚎𝚜', url=WRM)
+                        ],[
+                            InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
+                        ]
+                        ]
+                    ) 
+                )
         except Exception as e:
             print(e)  # print the error message
             await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
